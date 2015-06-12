@@ -12,6 +12,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/message-list.css">
     <!-- endbuild -->
   </head>
   <body ng-app="angularTutorialMailboxApp">
@@ -42,6 +43,29 @@
     </div>
 
     <div class="container">
+      <!--  -->
+      <!-- Using a Controller -->
+      <div ng-controller="MailboxCtrl">
+        <h1>Using a controller to get a list of messages</h1>
+        <!-- Messages List -->
+        <div class="list-group">
+          <a href class="list-group-item" ng-repeat="message in messages" ng-click="markMessageAsRead(message)">
+            <h4 class="list-group-item-heading">
+              <!-- Display a plus sign is message is new -->
+              <span ng-show="!message.markedAsRead" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              <!-- Message Title -->
+              {{message.subject}} <small>From {{message.authorFirstName}} {{message.authorLastName}} On the {{message.date | date}}</small>
+            </h4>
+            <!-- Message Content -->
+            <p class="list-group-item-text message-list-desc">
+              <small>{{message.body}}</small>
+            </p>
+          </a>
+        </div>
+      </div>
+      <hr>
+      <!--  -->
+      <!--  -->
       <!-- Simple Binding -->
       <h1>Simple Expression binding and evaluation</h1>
       <div class="jumbotron">
@@ -69,6 +93,7 @@
       <div class="alert alert-{{severity}}">
         <strong>{{message}}</strong>
       </div>
+      <hr>
     </div>
 
     <div class="footer">
