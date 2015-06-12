@@ -1,5 +1,7 @@
 # angular-tutorial-mailbox
 
+A Basic Mailbox built with Angular 1.3.x
+
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.11.1.
 

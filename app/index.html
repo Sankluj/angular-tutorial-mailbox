@@ -34,8 +34,9 @@
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse" collapse="!navCollapsed">
 
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">My Mails</a></li>
+            <ul class="nav navbar-nav" ng-init="currentPage = 1">
+              <li ng-class="{'active': currentPage == 1}"><a href="#/" ng-click="currentPage = 1">My Mails</a></li>
+              <li ng-class="{'active': currentPage == 2}"><a href="#/bindings-example" ng-click="currentPage = 2">Bindings Example</a></li>
             </ul>
           </div>
         </div>
@@ -43,57 +44,8 @@
     </div>
 
     <div class="container">
-      <!--  -->
-      <!-- Using a Controller -->
-      <div ng-controller="MailboxCtrl">
-        <h1>Using a controller to get a list of messages</h1>
-        <!-- Messages List -->
-        <div class="list-group">
-          <a href class="list-group-item" ng-repeat="message in messages" ng-click="markMessageAsRead(message)">
-            <h4 class="list-group-item-heading">
-              <!-- Display a plus sign is message is new -->
-              <span ng-show="!message.markedAsRead" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-              <!-- Message Title -->
-              {{message.subject}} <small>From {{message.authorFirstName}} {{message.authorLastName}} On the {{message.date | date}}</small>
-            </h4>
-            <!-- Message Content -->
-            <p class="list-group-item-text message-list-desc">
-              <small>{{message.body}}</small>
-            </p>
-          </a>
-        </div>
-      </div>
-      <hr>
-      <!--  -->
-      <!--  -->
-      <!-- Simple Binding -->
-      <h1>Simple Expression binding and evaluation</h1>
-      <div class="jumbotron">
-        <h1>{{'Hi' + ' Angular'}} !</h1>
-        <p>An addition: 5 + 4 = <strong>{{5+4}}</strong></p>
-        <code ng-non-bindable>In code: {{5 + 4}}</code>
-      </div>
-      <hr>
-      <!-- Two way data binding -->
-      <h1>Two way Data Binding</h1>
-      <!-- Input Expressions -->
-      <p>
-        <input class="form-control" ng-model="message" placeholder="Your alert message?">
-      </p>
-      <p>
-        <select ng-model="severity" class="form-control">
-          <option value="">Select the alert severity</option>
-          <option value="info">Infos</option>
-          <option value="success">Success</option>
-          <option value="warning">Warning</option>
-          <option value="danger">Danger</option>
-        </select>
-      </p>
-      <!-- Evaluation of the expression -->
-      <div class="alert alert-{{severity}}">
-        <strong>{{message}}</strong>
-      </div>
-      <hr>
+      <!-- The partial are rendered here -->
+      <div ng-view></div>
     </div>
 
     <div class="footer">
@@ -115,6 +67,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/mailBox.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!-- Simple Binding -->
+<h1>Simple Expression binding and evaluation</h1>
+<div class="jumbotron">
+  <h1>{{'Hi' + ' Angular'}} !</h1>
+  <p>An addition: 5 + 4 = <strong>{{5+4}}</strong></p>
+  <code ng-non-bindable>In code: {{5 + 4}}</code>
+</div>
+<hr>
+<!-- Two way data binding -->
+<h1>Two way Data Binding</h1>
+<!-- Input Expressions -->
+<p>
+  <input class="form-control" ng-model="message" placeholder="Your alert message?">
+</p>
+<p>
+  <select ng-model="severity" class="form-control">
+    <option value="">Select the alert severity</option>
+    <option value="info">Infos</option>
+    <option value="success">Success</option>
+    <option value="warning">Warning</option>
+    <option value="danger">Danger</option>
+  </select>
+</p>
+<!-- Evaluation of the expression -->
+<div class="alert alert-{{severity}}">
+  <strong>{{message}}</strong>
+</div>
+<hr>

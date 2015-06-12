@@ -10,30 +10,19 @@
  */
 angular
   .module('angularTutorialMailboxApp', [
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngRoute'
   ])
-  .controller('MailboxCtrl', function ($scope, $http, $log) {
-    // List Of Messages
-    $scope.messages = [];
-
-    // Retrieve all the messages from messages.json
-    $scope.getMessages = function() {
-      // Use the angular $http service to get the messages
-      $http.get('assets/messages.json')
-      .success(function(messagesData) {
-        $log.info(messagesData.length + ' Messages Retrieved')
-        $scope.messages = messagesData;
+  .config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/mailbox.html',
+        controller: 'MailboxCtrl'
       })
-      .error(function(errorData) {
-        $log.error('Get Messages Error.')
+      .when('/bindings-example', {
+        templateUrl: 'views/binding_example.html',
+      })
+      .otherwise({
+        redirectTo: '/'
       });
-    };
-
-    $scope.markMessageAsRead = function(message) {
-      message.markedAsRead = true;
-    };
-
-    // Call the Get messages function on controller initialisation
-    $scope.getMessages();
-
   });

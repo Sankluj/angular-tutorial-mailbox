@@ -1,0 +1,41 @@
+<!-- No Need for the ng-controller="Mailbox" directive as the router is injecting
+the controller automatically -->
+<h1>Using a controller to get a list of messages</h1>
+<!-- Messages List -->
+<div class="row">
+  <div class="col-sm-4">
+    <div class="list-group">
+      <a href class="list-group-item" ng-class="{'active' : selectedMessage.messageID === message.messageID}" ng-repeat="message in messages" ng-click="selectMessage(message)">
+        <h4 class="list-group-item-heading">
+          <!-- Display a plus sign is message is new -->
+          <span ng-show="!message.markedAsRead" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          <!-- Message Title -->
+          {{message.subject}} <small>From {{message.authorFirstName}} {{message.authorLastName}} On the {{message.date | date}}</small>
+        </h4>
+        <!-- Message Content -->
+        <p class="list-group-item-text message-list-desc">
+          <small>{{message.body}}</small>
+        </p>
+      </a>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <!-- No Message Selected -->
+    <div class="alert alert-warning" ng-show="!selectedMessage">
+      <strong>Please select a message to display</strong>
+    </div>
+    <!-- Message panel -->
+    <div class="panel panel-default message" ng-show="!!selectedMessage">
+      <div class="panel-heading">
+        <h3>
+          {{selectedMessage.subject}}
+          <br>
+          <small>From {{selectedMessage.authorFirstName}} {{selectedMessage.authorLastName}} On the {{selectedMessage.date | date}}</small>
+        </h3>
+      </div>
+      <div class="panel-body">
+        {{selectedMessage.body}}
+      </div>
+    </div>
+  </div>
+</div>
