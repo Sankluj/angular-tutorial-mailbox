@@ -9,29 +9,36 @@
  */
 angular.module('angularTutorialMailboxApp')
   .controller('MailboxCtrl', function ($scope, $http, $log) {
-    // List Of Messages
-    $scope.messages = [];
-    // Selected Message
-    $scope.selectedMessage = null;
+    // First Mailbox Data
+    $scope.mailBoxOne = {
+      messages: [],
+      selectedMessage: null
+    };
+    // Second Mailbox Data
+    $scope.mailBoxTwo = {
+      messages: [],
+      selectedMessage: null
+    };
 
-    // Retrieve all the messages from messages.json
-    $scope.getMessages = function() {
+    // Retrieve all the messages from filename.json
+    $scope.getMessages = function(mailBox, fileName) {
       // Use the angular $http service to get the messages
-      $http.get('assets/messages.json')
+      $http.get('assets/' + fileName + '.json')
       .success(function(messagesData) {
-        $log.info(messagesData.length + ' Messages Retrieved')
-        $scope.messages = messagesData;
+        $log.info(messagesData.length + ' Messages Retrieved');
+        mailBox.messages = messagesData;
       })
       .error(function(errorData) {
-        $log.error('Get Messages Error.')
+        $log.error('Get Messages Error.');
       });
     };
 
-    $scope.selectMessage = function(message) {
-      $scope.selectedMessage = message;
+    $scope.selectMessage = function(mailBox, message) {
+      mailBox.selectedMessage = message;
       message.markedAsRead = true;
     };
 
     // Call the Get messages function on controller initialisation
-    $scope.getMessages();
+    $scope.getMessages($scope.mailBoxOne, 'messages');
+    $scope.getMessages($scope.mailBoxTwo, 'messages2');
   });

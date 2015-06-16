@@ -1,0 +1,20 @@
+[
+   {
+      "messageID":"549de932-3f5e-3f5e-bc63-72fdd143aba9",
+      "date":"2015-01-03T12:30:21",
+      "subject":"New Mailbox Message",
+      "body":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "authorFirstName":"Jean",
+      "authorLastName":"Marco",
+      "markedAsRead":false
+   },
+   {
+      "messageID":"549sec92-3f5e-4c7f-bc63-72fdd143aba9",
+      "date":"2015-01-02T12:30:21",
+      "subject":"Second New Mailbox Message",
+      "body":"Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.",
+      "authorFirstName":"Jenny",
+      "authorLastName":"Lopez",
+      "markedAsRead":false
+   }
+]

@@ -1,0 +1,17 @@
+<!-- No Message Selected -->
+<div class="alert alert-warning" ng-show="!displayedMessage">
+  <strong>Please select a message to display</strong>
+</div>
+<!-- Message panel -->
+<div class="panel panel-default message" ng-show="!!displayedMessage">
+  <div class="panel-heading">
+    <h3>
+      {{displayedMessage.subject}}
+      <br>
+      <small>From {{displayedMessage.authorFirstName}} {{displayedMessage.authorLastName}} On the {{displayedMessage.date | date}}</small>
+    </h3>
+  </div>
+  <div class="panel-body">
+    {{displayedMessage.body}}
+  </div>
+</div>

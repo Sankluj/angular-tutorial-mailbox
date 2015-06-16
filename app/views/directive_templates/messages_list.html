@@ -1,0 +1,14 @@
+<div class="list-group">
+  <a href class="list-group-item" ng-class="{'active' : mailBox.selectedMessage.messageID === message.messageID}" ng-repeat="message in mailBox.messages" ng-click="selectMessageFunction(mailBox, message)">
+    <h4 class="list-group-item-heading">
+      <!-- Display a plus sign is message is new -->
+      <span ng-show="!message.markedAsRead" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+      <!-- Message Title -->
+      {{message.subject}} <small>From {{message.authorFirstName}} {{message.authorLastName}} On the {{message.date | date}}</small>
+    </h4>
+    <!-- Message Content -->
+    <p class="list-group-item-text message-list-desc">
+      <small>{{message.body}}</small>
+    </p>
+  </a>
+</div>
